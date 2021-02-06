@@ -27,7 +27,7 @@ void dijkstra(int start){
             //기존의 최소 비용보다 더 저렴하다면 교체
             if(nextDistance < d[next]){
                 d[next] = nextDistance;
-                //priority_queue는 기본적으로 큰값이 위로 가기때문에 저 작은 비용이 위쪽으로 가야해서 음수화함
+                //priority_queue는 기본적으로 큰값이 위로 가기때문에 더 작은 비용이 위쪽으로 가야해서 음수화함
                 pq.push(make_pair(next,-nextDistance));
             }
         }
