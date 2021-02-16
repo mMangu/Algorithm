@@ -1,5 +1,4 @@
 #include <cstdio>
-#include <algorithm>
 int d[1003];
 int min(int a, int b) {
     return a < b ? a : b;
