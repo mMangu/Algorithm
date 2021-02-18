@@ -1,2 +1,2 @@
 # Algorithm
-## study log
+study log
