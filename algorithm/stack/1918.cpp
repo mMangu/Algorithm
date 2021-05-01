@@ -16,8 +16,7 @@ int main() {
                     break;
             case '*':
             case '/':
-                    while (!s.empty() && (s.top() == '*' || s.top() == '/'))
-                    {
+                    while (!s.empty() && (s.top() == '*' || s.top() == '/')) {
                         cout << s.top();
                         s.pop();
                     }
