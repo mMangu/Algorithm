@@ -47,6 +47,5 @@ int main() {
     }
     bfs(1);
     bfs(ansNode);
-    bfs(ansNode);
     printf("%d", ansCost);
 }
