@@ -26,20 +26,13 @@ int main() {
     int N; cin >> N;
     while (N--) {
         string ipt; cin >> ipt;
-        auto iter = normal.find(ipt);
-        if (iter != normal.end()) {
-            normalTotal += iter->second;
+        if (normal.find(ipt) != normal.end()) {
+            normalTotal += normal[ipt];
         }
-
-        iter = special.find(ipt);
-        if (iter != special.end()) {
-            specialTotal += iter->second;
+        else if (special.find(ipt) != special.end()) {
+            specialTotal += special[ipt];
         }
-
-        iter = service.find(ipt);
-        if (iter != service.end()) {
-            serviceCnt++;
-        }        
+        else serviceCnt++;
     }
     bool flag = true;
     if (specialTotal > 0 && normalTotal < 20000) flag = false;
