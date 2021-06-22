@@ -16,10 +16,10 @@ int N, ans, cnt;
 T arr[100005];
 int par[100005];
 
-bool compare(T a, T b) {
+bool compare(T &a, T &b) {
     if (cnt == 0) return a.x < b.x;
     if (cnt == 1) return a.y < b.y;
-    if (cnt == 2) return a.z < b.z;
+    else return a.z < b.z;
 }
 
 int find(int x) {
