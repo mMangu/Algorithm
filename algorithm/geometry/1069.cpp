@@ -4,10 +4,6 @@
 
 using namespace std;
 
-double toPlus(double a) {
-    return a > 0 ? a : - a;
-}
-
 int main() {
     int x, y, d, t; scanf("%d %d %d %d", &x, &y, &d, &t);
     double dist = sqrt(x * x + y * y);
