@@ -16,9 +16,9 @@ int main() {
     if (jump > 0) {
         //방향 꺾어서 점프만 하는 경우
         ans = min(ans, double(jump + 1) * t);
-    } else{
+    } else {
         //점프만 두번 하는 경우
-        if(dist < d) ans = min(ans, t * 2.0);
+        if (dist < d) ans = min(ans, t * 2.0);
     }
     printf("%.9lf", ans);
 }
