@@ -18,7 +18,11 @@ int main() {
             dp[i][0] = min(dp[i - 1][1], dp[i - 1][2]) + arr[i][0];
             dp[i][1] = min(dp[i - 1][0], dp[i - 1][2]) + arr[i][1];
             dp[i][2] = min(dp[i - 1][0], dp[i - 1][1]) + arr[i][2];
-            if (i == 1) for (int j = 0; j < 3; j++) if (j != k) dp[i][j] = 1e9;
+            // 첫번째 색을 고정시킨다
+            if (i == 1) {
+                for (int j = 0; j < 3; j++) if (j != k) dp[i][j] = 1e9;
+            }
+            // n번째에 첫번째와 색이 같은 경우를 배제시킨다.
             if (i == n) dp[i][k] = 1e9;
         }
         ans = min(ans, min(dp[n][0], min(dp[n][1], dp[n][2])));
