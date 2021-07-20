@@ -1,47 +1,47 @@
-#include <cstdio>
+#include <iostream>
 #include <vector>
 #include <cstring>
 
 using namespace std;
 
-vector<int> arr;
+vector<int> v;
 int g[555][555];
 
+void solve(){
+	memset(g, 0, sizeof g);
+	int n; cin >> n; v.resize(n);
+	for (auto &i : v) cin >> i;
+	for (int i = 0; i < n; i++){
+		for (int j = i + 1; j < n; j++){
+			g[v[i]][v[j]] = 1;
+		}
+	}
+	int m; cin >> m;
+	while (m--) {
+		int a, b; cin >> a >> b;
+		swap(g[a][b], g[b][a]);
+	}
+
+	for (int i = 0; i < n; i++){
+		for (int j = i + 1; j < n; j++){
+			if (g[v[j]][v[i]]) swap(v[i], v[j]);
+		}
+	}
+
+	for (int i = 0; i < n; i++){
+		for (int j = i + 1; j < n; j++){
+			if (g[v[j]][v[i]]){
+				cout << "IMPOSSIBLE\n";
+                return;
+			}
+		}
+	}
+	for (auto i : v) cout << i << " ";
+    cout << "\n";
+}
+
 int main() {
-    int T; scanf("%d", &T);
-    while (T--) {
-        memset(g, 0, sizeof g);
-        int n; scanf("%d", &n);
-        arr.resize(n);
-        for (int i = 0; i < n; i++) {
-            scanf("%d", &arr[i]);
-        }
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                g[arr[i]][arr[j]] = 1;
-            }
-        }
-        int m; scanf("%d", &m);
-        while (m--) {
-            int a, b; scanf("%d %d", &a, &b);
-            swap(g[a][b], g[b][a]);
-        }
-
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                if (g[arr[j]][arr[i]]) swap(arr[i], arr[j]);
-            }
-        }
-
-        for (int i = 0; i < n; i++){
-            for (int j = i + 1; j < n; j++){
-                if (g[arr[j]][arr[i]]){
-                    printf("IMPOSSIBLE\n");
-                    return 0;
-                }
-            }
-        }
-        for (auto i : arr) printf("%d ", i);
-        printf("\n");
-    }
+	ios_base::sync_with_stdio(0); cin.tie(0);
+	int t; cin >> t;
+	while (t--) solve();
 }
