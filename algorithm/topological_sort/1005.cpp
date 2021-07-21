@@ -20,12 +20,12 @@ void solve() {
         v[x].push_back(y);
         cnt[y]++;
     }
-    int to; scanf("%d", &to);
+    int w; scanf("%d", &w);
     queue<int> q;
     for (int i = 1; i <= n; i++) {
         if (!cnt[i]) q.push(i);
     }
-    while (cnt[to] > 0) {
+    while (cnt[w] > 0) {
         int cur = q.front();
         q.pop();
         for (auto nxt : v[cur]) {
@@ -33,7 +33,7 @@ void solve() {
             if (--cnt[nxt] == 0) q.push(nxt);
         }
     }
-    printf("%d\n", dp[to] + cost[to]);
+    printf("%d\n", dp[w] + cost[w]);
 }
 
 int main() {
